@@ -1,0 +1,22 @@
+[org 0x7c00]
+mov ah, 0x0e
+mov si, msg
+print_loop:
+    lodsb
+    cmp al, 0
+    je wait_for_key
+    int 0x10
+    jmp print_loop
+
+wait_for_key:
+    mov ah, 0x00
+    int 0x16       ; Ngắt BIOS để chờ phím bấm
+
+    mov ah, 0x0e   ; In ký tự vừa bấm ra màn hình
+    int 0x10
+    jmp wait_for_key
+
+msg: db 'SaHoangOS 3.0 - Typing mode activated:', 13, 10, 0
+times 510-($-$$) db 0
+dw 0xaa55
+

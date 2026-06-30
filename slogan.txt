@@ -1,0 +1,9 @@
+SaHoangOS
+
+Làm chủ thiết bị của bạn.
+
+Developer:
+Nguyễn Quốc Đại
+
+Version:
+1.0 Alpha
